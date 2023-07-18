@@ -5,10 +5,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-/**
- * Hello world!
- *
- */
+import java.util.List;
+
 public class App {
     public static void main( String[] args ) {
 
@@ -20,13 +18,24 @@ public class App {
         try {
             session.beginTransaction();
 
-            Person person1 = new Person("Todd", 23);
-            Person person2 = new Person("Helly", 43);
-            Person person3 = new Person("Filly", 18);
+            //вывод таблицы в консоль
+//            List<Person> people = session.createQuery("SELECT p FROM Person p", Person.class).getResultList();
+//            for (Person p : people) System.out.println(p);
 
-            session.save(person1);
-            session.save(person2);
-            session.save(person3);
+            //вывод с условием
+//            List<Person> people = session.createQuery("SELECT p FROM Person p where p.age>35", Person.class).getResultList();
+//            for (Person p : people) System.out.println(p);
+
+//            List<Person> people = session.createQuery("SELECT p FROM Person p where p.name LIKE 'S%' ", Person.class).getResultList();
+//            for (Person p : people) System.out.println(p);
+
+            //обновление
+//            session.createQuery("UPDATE Person set age = 50 where name='Tom' ").
+//            executeUpdate();
+
+            //удаление
+//            session.createQuery("Delete from Person where name='Tom' ").
+//            executeUpdate();
 
             session.getTransaction().commit();
         } finally {
